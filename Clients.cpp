@@ -37,10 +37,21 @@ Clients Clients::saisir_client(){
     return Clients(name, Date(j,m,an), Compte(Id_compte,0.00));
 
 }
-void Clients::affiche_client(Clients c1){
-    cout << "Nom: "<< c1.getName() << endl;
-    cout << "ID: "<<c1.compte.getId() << endl;
-    cout << "Date de naissance: " << c1.date.affiche_Date() << endl;
-    cout << "Solde de compte: "<< c1.compte.getSolde() << endl;
+void Clients::affiche_client(){
+    cout << "Nom: "<< this->getName() << endl;
+    cout << "ID: "<<this->compte.getId() << endl;
+    cout << "Date de naissance: " << this->date.affiche_Date() << endl;
+    cout << "Solde de compte: "<< this->compte.getSolde() << endl;
+
+}
+void Clients::crediter(Clients c2, double montant){
+    auto temp = (*this).compte.getSolde();
+    if (temp < montant){
+        cout <<"votre solde de compte est insuffisant"<<endl;
+    }
+    else {
+        c2.setCompte(Compte(c2.compte.getId(), c2.compte.getSolde()+montant)); 
+        (*this).compte.setSolde(temp - montant);
+    }
 
 }

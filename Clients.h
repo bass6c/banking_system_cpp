@@ -28,7 +28,8 @@ class Clients {
     void setDate(Date d){date = d;}
     void setCompte(Compte c){compte = c;}
     Clients saisir_client();
-    void affiche_client(Clients c1);
+    void affiche_client();
+    void crediter(Clients c1, double montant);
 
     
     
