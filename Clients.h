@@ -9,6 +9,7 @@ class Clients {
     string Name;
     Date date;
     Compte compte;
+    string Id_clients;
     public :
     Clients(){
         Name = "name";
